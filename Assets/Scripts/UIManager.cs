@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public GameObject Inven; // 인벤토리 패널
+    public GameObject UI1;
+    public GameObject UI2;
+    public GameObject UI3;
+
+    void showInventory() {
+        Inven.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void hideInventory() {
+        Inven.SetActive(false);
     }
+
+
+
 }
