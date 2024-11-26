@@ -14,68 +14,36 @@ public class UIManager : MonoBehaviour
 
     void pushBtn(){
         if(Input.GetKeyDown(KeyCode.I)) {
-            if(Inven.activeSelf) {
-                hideInventory();
+            if(Inven.activeSelf) { // Inven 활성화 돼있다면
+                Inven.SetActive(false);
             }
             else {
-                showInventory();
+                Inven.SetActive(true);
             }
         }
         if(Input.GetKeyDown(KeyCode.Alpha1)) {
             if(UI1.activeSelf) {
-                hideUI1();
+                UI1.SetActive(false);
             }
             else {
-                showUI1();
+                UI1.SetActive(true);
             }
         }
         if(Input.GetKeyDown(KeyCode.Alpha2)) {
             if(UI2.activeSelf) {
-                hideUI2();
+                UI2.SetActive(false);
             }
             else {
-                showUI2();
+                UI2.SetActive(true);
             }
         }
         if(Input.GetKeyDown(KeyCode.Alpha3)) {
             if(UI3.activeSelf) {
-                hideUI3();
+                UI3.SetActive(false);
             }
             else {
-                showUI3();
+                UI3.SetActive(true);
             }
         }
     }
-    void showInventory() {
-        Inven.SetActive(true);
-    }
-
-    void hideInventory() {
-        Inven.SetActive(false);
-    }
-
-    void showUI1() {
-        UI1.SetActive(true);
-    }
-
-    void hideUI1() {
-        UI1.SetActive(false);
-    }
-
-    void showUI2() {
-        UI2.SetActive(true);
-    }
-
-    void hideUI2() {
-        UI2.SetActive(false);
-    }
-
-    void showUI3() {
-        UI3.SetActive(true);
-    }
-
-    void hideUI3() {
-        UI3.SetActive(false);
-    }
-
 }
