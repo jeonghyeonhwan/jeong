@@ -8,7 +8,20 @@ public class UIManager : MonoBehaviour
     public GameObject UI1;
     public GameObject UI2;
     public GameObject UI3;
+    void Update() {
+        pushBtn();
+    }
 
+    void pushBtn(){
+        if(Input.GetKeyDown(KeyCode.I)) {
+            if(Inven.activeSelf) {
+                hideInventory();
+            }
+            else {
+                showInventory();
+            }
+        }
+    }
     void showInventory() {
         Inven.SetActive(true);
     }
