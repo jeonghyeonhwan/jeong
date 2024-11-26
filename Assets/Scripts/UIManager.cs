@@ -9,10 +9,10 @@ public class UIManager : MonoBehaviour
     [SerializeField]private GameObject UI2;
     [SerializeField]private GameObject UI3;
     void Update() {
-        pushBtn();
+        pushButton();
     }
 
-    void pushBtn(){
+    void pushButton(){
         if(Input.GetKeyDown(KeyCode.I)) {
             if(Inven.activeSelf) {
                 hideInventory();
