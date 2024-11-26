@@ -1,0 +1,13 @@
+# Unity generated folders
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+
+# VSCode settings
+.vscode/
+
+# Unity Project Settings
+ProjectSettings/
