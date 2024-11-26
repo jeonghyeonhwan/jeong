@@ -46,6 +46,8 @@ public class UIManager : MonoBehaviour
             }
         }
     }
+
+    // 추후 추가 코드( ex : 소리) 추가를 위해 메서드
     void showInventory() {
         Inven.SetActive(true);
     }
