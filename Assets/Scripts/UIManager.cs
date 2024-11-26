@@ -17,6 +17,13 @@ public class UIManager : MonoBehaviour
         Inven.SetActive(false);
     }
 
+    void showUI1() {
+        UI1.SetActive(true);
+    }
+
+    void hideUI1() {
+        UI1.SetActive(false);
+    }
 
 
 }
