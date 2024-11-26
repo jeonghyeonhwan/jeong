@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     [SerializeField]private GameObject UI1;
     [SerializeField]private GameObject UI2;
     [SerializeField]private GameObject UI3;
+    [SerializeField]private GameObject UI4;
     void Update() {
         pushButton();
     }
@@ -21,6 +22,7 @@ public class UIManager : MonoBehaviour
                 showInventory();
             }
         }
+
         if(Input.GetKeyDown(KeyCode.Alpha1)) {
             if(UI1.activeSelf) {
                 hideUI1();
@@ -29,6 +31,7 @@ public class UIManager : MonoBehaviour
                 showUI1();
             }
         }
+
         if(Input.GetKeyDown(KeyCode.Alpha2)) {
             if(UI2.activeSelf) {
                 hideUI2();
@@ -37,12 +40,22 @@ public class UIManager : MonoBehaviour
                 showUI2();
             }
         }
+
         if(Input.GetKeyDown(KeyCode.Alpha3)) {
             if(UI3.activeSelf) {
                 hideUI3();
             }
             else {
                 showUI3();
+            }
+        }
+
+        if(Input.GetKeyDown(KeyCode.Alpha4)) {
+            if(UI4.activeSelf) {
+                hideUI4();
+            }
+            else {
+                showUI4();
             }
         }
     }
@@ -78,6 +91,14 @@ public class UIManager : MonoBehaviour
 
     void hideUI3() {
         UI3.SetActive(false);
+    }
+
+    void showUI4() {
+        UI4.SetActive(true);
+    }
+
+    void hideUI4() {
+        UI4.SetActive(false);
     }
 
 }
