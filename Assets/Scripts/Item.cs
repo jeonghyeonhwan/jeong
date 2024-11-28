@@ -8,9 +8,10 @@ public class Item
     public string itemDescription;  // 아이템 설명
 
     // 생성자 (필요한 경우 사용)
-    public void InitializeItem(string _itemName, string _itemDes, int _itemCount)
+    public void InitializeItem(string _itemName, Sprite _itemIcon, string _itemDes, int _itemCount)
     {
         itemName = _itemName;
+        itemIcon = _itemIcon;
         itemDescription = _itemDes;
         itemCount = _itemCount;
     }

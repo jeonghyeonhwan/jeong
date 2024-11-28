@@ -32,7 +32,7 @@ public class InventoryManager : MonoBehaviour
     public void AddItem(Item getItem)
     {
         inventoryItems.Add(getItem);
-        Debug.Log($"아이템 추가됨: {getItem.name}");
+        Debug.Log($"아이템 추가됨: {getItem.itemName}");
         // UI 갱신
         // uiManager.UpdateInventoryUI(inventoryItems);
     }
@@ -43,7 +43,7 @@ public class InventoryManager : MonoBehaviour
         if (inventoryItems.Contains(removeItem))
         {
             inventoryItems.Remove(removeItem);
-            Debug.Log($"아이템 제거됨: {removeItem.name}");
+            Debug.Log($"아이템 제거됨: {removeItem.itemName}");
             DebugLogInventoryItems(); // 인벤토리 목록 체크
             // UI 갱신
             // uiManager.UpdateInventoryUI(inventoryItems);
@@ -62,7 +62,7 @@ public class InventoryManager : MonoBehaviour
         {
             for (int i = 0; i < inventoryItems.Count; i++)
             {
-                Debug.Log($"아이템 {i + 1}: 이름 = {inventoryItems[i].itemName}, 설명 = {inventoryItems[i].itemDesc}, 개수 = {inventoryItems[i].itemCount}");
+                Debug.Log($"아이템 {i + 1}: 이름 = {inventoryItems[i].itemName}, 설명 = {inventoryItems[i].itemDescription}, 개수 = {inventoryItems[i].itemCount}");
             }
         }
     }
