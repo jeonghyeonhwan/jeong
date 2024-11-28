@@ -4,14 +4,35 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    private List<Item> inventoryItems = new List<Item>();
+    // 싱글톤 인스턴스
+    public static InventoryManager Instance { get; private set; } // 다른 클래스에서 인스턴스를 임의로 조정 불가
 
-    [SerializeField] private UIManager uiManager;
+    // 아이템 목록
+    private List<Item> inventoryItems = new List<Item>();
     
-    // 아이템 획득
+    [SerializeField] private UIManager uiManager;
+
+    private void Awake()
+    {
+        // 싱글톤 설정
+        if (Instance == null)
+        {
+            Instance = this;
+            // 이 오브젝트를 씬 전환 시 파괴X
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            // 이미 다른 인스턴스가 존재하면 현재 게임 오브젝트를 파괴
+            Destroy(gameObject);
+        }
+    }
+
+    // 아이템 획득 시 
     public void AddItem(Item getItem)
     {
         inventoryItems.Add(getItem);
+        Debug.Log($"아이템 추가됨: {getItem.name}");
         // UI 갱신
         // uiManager.UpdateInventoryUI(inventoryItems);
     }
@@ -22,14 +43,27 @@ public class InventoryManager : MonoBehaviour
         if (inventoryItems.Contains(removeItem))
         {
             inventoryItems.Remove(removeItem);
+            Debug.Log($"아이템 제거됨: {removeItem.name}");
+            DebugLogInventoryItems(); // 인벤토리 목록 체크
             // UI 갱신
             // uiManager.UpdateInventoryUI(inventoryItems);
         }
     }
 
-    // 인벤토리에서 아이템 목록을 가져오기
-    public List<Item> GetInventoryItems()
+
+    // 인벤토리의 모든 아이템을 디버그 로그로 출력
+    public void DebugLogInventoryItems()
     {
-        return inventoryItems;
+        if (inventoryItems.Count == 0)
+        {
+            Debug.Log("인벤토리가 비어 있습니다.");
+        }
+        else
+        {
+            for (int i = 0; i < inventoryItems.Count; i++)
+            {
+                Debug.Log($"아이템 {i + 1}: 이름 = {inventoryItems[i].itemName}, 설명 = {inventoryItems[i].itemDesc}, 개수 = {inventoryItems[i].itemCount}");
+            }
+        }
     }
 }
