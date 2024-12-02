@@ -12,6 +12,13 @@ public class InventoryManager : MonoBehaviour
     
     [SerializeField] private UIManager uiManager;
 
+    Item items;
+
+    private void Start() {
+        AddItem(new Item("sword", "칼", 1));
+        AddItem(new Item("Arrow", "활", 2));
+    }
+
     private void Awake()
     {
         // 싱글톤 설정
