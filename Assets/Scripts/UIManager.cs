@@ -4,100 +4,132 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField]private GameObject Inven; // 인벤토리 패널
+    [SerializeField]private GameObject _inventory; // 인벤토리 패널
     [SerializeField]private GameObject UI1;
     [SerializeField]private GameObject UI2;
     [SerializeField]private GameObject UI3;
     [SerializeField]private GameObject UI4;
+    [SerializeField]private GameObject _chat;
+
+    // 채팅 버튼
+    [SerializeField] private Button[] buttons;
+
+    ChattingManager chat;
+
+
     void Update() {
         pushButton();
+
+        if (Input.GetKeyDown(KeyCode.Tab) && _chat.activeSelf)
+        {
+            chat.NextLine(); // 다음문장을호
+        }
     }
 
     void pushButton(){
         if(Input.GetKeyDown(KeyCode.I)) {
-            if(Inven.activeSelf) {
-                hideInventory();
+            if(_inventory.activeSelf) {
+                Hideinventory();
             }
             else {
-                showInventory();
+                Showinventory();
             }
         }
 
         if(Input.GetKeyDown(KeyCode.Alpha1)) {
             if(UI1.activeSelf) {
-                hideUI1();
+                HideUI1();
             }
             else {
-                showUI1();
+                ShowUI1();
             }
         }
 
         if(Input.GetKeyDown(KeyCode.Alpha2)) {
             if(UI2.activeSelf) {
-                hideUI2();
+                HideUI2();
             }
             else {
-                showUI2();
+                ShowUI2();
             }
         }
 
         if(Input.GetKeyDown(KeyCode.Alpha3)) {
             if(UI3.activeSelf) {
-                hideUI3();
+                HideUI3();
             }
             else {
-                showUI3();
+                ShowUI3();
             }
         }
 
         if(Input.GetKeyDown(KeyCode.Alpha4)) {
             if(UI4.activeSelf) {
-                hideUI4();
+                HideUI4();
             }
             else {
-                showUI4();
+                ShowUI4();
             }
         }
     }
 
+
+
+
+
+
+
+    void ShowChat(Button button) {
+        if(button == buttons[0]) {
+            chat.DisplayChat("NPC_1");
+        }
+        if(button == buttons[1]) {
+            chat.DisplayChat("NPC_2");
+        }
+    }
+
+    void HideChat() {
+        _chat.SetActive(false);
+    }
+
     // 추후 추가 코드( ex : 소리) 추가를 위해 메서드
-    void showInventory() {
-        Inven.SetActive(true);
+    void ShowInventory() {
+        _inventory.SetActive(true);
     }
 
-    void hideInventory() {
-        Inven.SetActive(false);
+    void HideInventory() {
+        _inventory.SetActive(false);
     }
 
-    void showUI1() {
+    void ShowUI1() {
         UI1.SetActive(true);
     }
 
-    void hideUI1() {
+    void HideUI1() {
         UI1.SetActive(false);
     }
 
-    void showUI2() {
+    void ShowUI2() {
         UI2.SetActive(true);
     }
 
-    void hideUI2() {
+    void HideUI2() {
         UI2.SetActive(false);
     }
 
-    void showUI3() {
+    void ShowUI3() {
         UI3.SetActive(true);
     }
 
-    void hideUI3() {
+    void HideUI3() {
         UI3.SetActive(false);
     }
 
-    void showUI4() {
+    void ShowUI4() {
         UI4.SetActive(true);
     }
 
-    void hideUI4() {
+    void HideUI4() {
         UI4.SetActive(false);
     }
 
